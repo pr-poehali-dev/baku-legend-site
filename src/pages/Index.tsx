@@ -514,9 +514,9 @@ export default function Index() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem", marginBottom: "3rem" }}>
             {[
-              { icon: "MapPin", title: "Адрес", lines: ["г. Севастополь", "ул. Большая Морская, 1"] },
-              { icon: "Phone", title: "Телефон", lines: ["+7 (692) 000-00-00", "Принимаем звонки с 11:00"] },
-              { icon: "Clock", title: "Режим работы", lines: ["Пн–Чт: 11:00 – 23:00", "Пт–Вс: 11:00 – 00:00"] },
+              { icon: "MapPin", title: "Адрес", lines: ["г. Севастополь", "ул. Петрова, 4"] },
+              { icon: "Phone", title: "Телефон", lines: ["+7 (927) 055-55-55", "Принимаем звонки круглосуточно"] },
+              { icon: "Clock", title: "Режим работы", lines: ["Круглосуточно", "7 дней в неделю"] },
             ].map((item, i) => (
               <div
                 key={i}
