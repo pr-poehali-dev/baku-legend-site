@@ -119,7 +119,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex flex-col leading-none cursor-pointer" onClick={() => scrollTo("hero")}>
             <span className="font-display text-2xl font-bold" style={{ fontFamily: "'Cormorant Garamond', serif", background: "linear-gradient(135deg, var(--gold), var(--gold-light))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-              Легенда Баку
+              Легенды Баку
             </span>
             <span style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "10px", letterSpacing: "0.25em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.7 }}>
               Севастополь
@@ -327,7 +327,7 @@ export default function Index() {
               Вкус <span style={{ color: "var(--gold)" }}>Баку</span><br />в Севастополе
             </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "1.2rem", fontFamily: "'Golos Text', sans-serif", fontSize: "15px", lineHeight: 1.8, color: "rgba(242,234,216,0.7)" }}>
-              <p>Ресторан «Легенда Баку» открылся в Севастополе более 15 лет назад и стал настоящим посольством азербайджанской кулинарной культуры на черноморском берегу.</p>
+              <p>Ресторан «Легенды Баку» открылся в Севастополе более 15 лет назад и стал настоящим посольством азербайджанской кулинарной культуры на черноморском берегу.</p>
               <p>Наш шеф-повар привёз рецепты, передававшиеся в семье через поколения — аутентичный лула-кебаб, шах-плов с каштанами и сухофруктами, нежная долма в виноградных листьях.</p>
               <p>Каждое блюдо — это путешествие в Баку: пряный аромат шафрана, живой огонь мангала и тёплое гостеприимство Востока.</p>
             </div>
@@ -570,7 +570,7 @@ export default function Index() {
       <footer style={{ padding: "2.5rem 1.5rem", background: "var(--dark-card)", borderTop: "1px solid rgba(201,168,76,0.1)" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1.5rem" }}>
           <div>
-            <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", fontWeight: 700, color: "var(--gold)" }}>Легенда Баку</div>
+            <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", fontWeight: 700, color: "var(--gold)" }}>Легенды Баку</div>
             <p style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "12px", color: "rgba(242,234,216,0.4)", marginTop: "4px" }}>Ресторан азербайджанской кухни · Севастополь</p>
           </div>
           <div style={{ display: "flex", gap: "2rem" }}>
@@ -580,7 +580,7 @@ export default function Index() {
               </button>
             ))}
           </div>
-          <p style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "12px", color: "rgba(242,234,216,0.3)" }}>© 2025 Легенда Баку</p>
+          <p style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "12px", color: "rgba(242,234,216,0.3)" }}>© 2025 Легенды Баку</p>
         </div>
       </footer>
     </div>
