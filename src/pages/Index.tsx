@@ -4,6 +4,7 @@ import Icon from "@/components/ui/icon";
 const LULA_IMG = "https://cdn.poehali.dev/projects/2d8f79af-5f59-4784-b8f6-e0e8ac5ea696/files/a2971bb1-fd52-43b8-ac15-f44d3f74b5fd.jpg";
 const PLOV_IMG = "https://cdn.poehali.dev/projects/2d8f79af-5f59-4784-b8f6-e0e8ac5ea696/files/105ad56e-2eb0-4ce1-81e7-c0648f5e852a.jpg";
 const SHASHLIK_IMG = "https://cdn.poehali.dev/projects/2d8f79af-5f59-4784-b8f6-e0e8ac5ea696/files/af1ccd9d-4c15-458b-9b72-1cafc152db63.jpg";
+const DOVGA_IMG = "https://cdn.poehali.dev/projects/2d8f79af-5f59-4784-b8f6-e0e8ac5ea696/files/ed8dfc33-d63a-412d-800a-af6f0c1a7e0c.jpg";
 
 function useScrollReveal() {
   useEffect(() => {
@@ -50,6 +51,7 @@ const menuCategories = [
       { name: "Дюшбара", desc: "Азербайджанские пельмени с бараниной в бульоне", price: "340 ₽" },
       { name: "Долма", desc: "Виноградные листья с рисом и ягнятиной, мацони", price: "390 ₽" },
       { name: "Пахлава", desc: "Медовая слоёная выпечка с орехами, шафран", price: "280 ₽" },
+      { name: "Довга", desc: "Традиционный йогуртовый суп со шпинатом, рисом и свежей мятой", price: "250 ₽" },
     ],
   },
 ];
@@ -79,6 +81,7 @@ const galleryImages = [
   { src: LULA_IMG, title: "Лула-кебаб" },
   { src: PLOV_IMG, title: "Шах-плов" },
   { src: SHASHLIK_IMG, title: "Шашлык" },
+  { src: DOVGA_IMG, title: "Довга" },
 ];
 
 export default function Index() {
@@ -289,7 +292,7 @@ export default function Index() {
             <div className="deco-line" style={{ margin: "0 auto" }} />
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1rem" }}>
             {galleryImages.map((img, i) => (
               <div
                 key={i}
