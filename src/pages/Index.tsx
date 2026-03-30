@@ -88,6 +88,7 @@ export default function Index() {
   useScrollReveal();
   const [activeCategory, setActiveCategory] = useState(0);
   const [navScrolled, setNavScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", date: "", guests: "2", comment: "" });
   const [formSent, setFormSent] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
@@ -135,20 +136,46 @@ export default function Index() {
               </button>
             ))}
           </div>
-          <button onClick={() => scrollTo("booking")} className="btn-gold px-5 py-2.5 text-sm rounded-sm" style={{ fontSize: "13px" }}>
-            Забронировать
-          </button>
+          <div className="flex items-center gap-3">
+            <button onClick={() => scrollTo("booking")} className="btn-gold px-5 py-2.5 rounded-sm hidden md:block" style={{ fontSize: "13px" }}>
+              Забронировать
+            </button>
+            {/* Mobile hamburger */}
+            <button
+              className="md:hidden flex flex-col gap-1.5 p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              style={{ background: "none", border: "none", cursor: "pointer" }}
+            >
+              <span style={{ display: "block", width: "22px", height: "1.5px", background: mobileMenuOpen ? "var(--gold)" : "var(--cream)", transition: "all 0.3s", transform: mobileMenuOpen ? "rotate(45deg) translate(3px, 3px)" : "none" }} />
+              <span style={{ display: "block", width: "22px", height: "1.5px", background: "var(--gold)", transition: "all 0.3s", opacity: mobileMenuOpen ? 0 : 1 }} />
+              <span style={{ display: "block", width: "22px", height: "1.5px", background: mobileMenuOpen ? "var(--gold)" : "var(--cream)", transition: "all 0.3s", transform: mobileMenuOpen ? "rotate(-45deg) translate(3px, -3px)" : "none" }} />
+            </button>
+          </div>
         </div>
+        {/* Mobile dropdown */}
+        {mobileMenuOpen && (
+          <div style={{ background: "rgba(12,10,8,0.98)", borderTop: "1px solid rgba(201,168,76,0.15)", padding: "1rem 1.5rem 1.5rem" }}>
+            {[["hero", "Главная"], ["menu", "Меню"], ["gallery", "Галерея"], ["about", "О нас"], ["reviews", "Отзывы"], ["contacts", "Контакты"]].map(([id, label]) => (
+              <button key={id} onClick={() => { scrollTo(id); setMobileMenuOpen(false); }}
+                style={{ display: "block", width: "100%", textAlign: "left", padding: "12px 0", fontFamily: "'Golos Text', sans-serif", fontSize: "16px", color: "var(--cream)", background: "none", border: "none", borderBottom: "1px solid rgba(201,168,76,0.08)", cursor: "pointer" }}>
+                {label}
+              </button>
+            ))}
+            <button onClick={() => { scrollTo("booking"); setMobileMenuOpen(false); }} className="btn-gold rounded-sm w-full mt-4" style={{ padding: "12px", fontSize: "13px" }}>
+              Забронировать столик
+            </button>
+          </div>
+        )}
       </nav>
 
       {/* HERO */}
       <section id="hero" ref={heroRef} className="relative flex items-center justify-center overflow-hidden" style={{ minHeight: "100vh" }}>
         {/* Background mosaic */}
-        <div className="absolute inset-0" style={{ display: "grid", gridTemplateColumns: "2fr 1fr" }}>
+        <div className="absolute inset-0 hero-mosaic" style={{ display: "grid", gridTemplateColumns: "2fr 1fr" }}>
           <div className="relative overflow-hidden">
             <img src={SHASHLIK_IMG} alt="Шашлык" className="w-full h-full object-cover" style={{ transform: "scale(1.05)", filter: "brightness(0.3)" }} />
           </div>
-          <div style={{ display: "grid", gridTemplateRows: "1fr 1fr" }}>
+          <div className="hero-mosaic-side" style={{ display: "grid", gridTemplateRows: "1fr 1fr" }}>
             <div className="relative overflow-hidden">
               <img src={LULA_IMG} alt="Лула-кебаб" className="w-full h-full object-cover" style={{ filter: "brightness(0.3)" }} />
             </div>
@@ -217,7 +244,7 @@ export default function Index() {
       </section>
 
       {/* MENU */}
-      <section id="menu" style={{ padding: "6rem 1.5rem", background: "var(--dark-card)" }}>
+      <section id="menu" className="section-pad" style={{ padding: "6rem 1.5rem", background: "var(--dark-card)" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <div className="text-center reveal" style={{ opacity: 0, transform: "translateY(40px)", transition: "all 0.8s ease", marginBottom: "4rem" }}>
             <p style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "11px", letterSpacing: "0.4em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "1rem" }}>Наше предложение</p>
@@ -250,7 +277,7 @@ export default function Index() {
           </div>
 
           {/* Items */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(380px, 1fr))", gap: "1rem" }}>
+          <div className="menu-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(380px, 1fr))", gap: "1rem" }}>
             {menuCategories[activeCategory].items.map((item, i) => (
               <div
                 key={item.name + i}
@@ -284,7 +311,7 @@ export default function Index() {
       </section>
 
       {/* GALLERY */}
-      <section id="gallery" style={{ padding: "6rem 1.5rem", background: "var(--dark)" }}>
+      <section id="gallery" className="section-pad" style={{ padding: "6rem 1.5rem", background: "var(--dark)" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <div className="text-center reveal" style={{ opacity: 0, transform: "translateY(40px)", transition: "all 0.8s ease", marginBottom: "4rem" }}>
             <p style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "11px", letterSpacing: "0.4em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "1rem" }}>Наши блюда</p>
@@ -292,7 +319,7 @@ export default function Index() {
             <div className="deco-line" style={{ margin: "0 auto" }} />
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1rem" }}>
+          <div className="gallery-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1rem" }}>
             {galleryImages.map((img, i) => (
               <div
                 key={i}
@@ -322,8 +349,8 @@ export default function Index() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" style={{ padding: "6rem 1.5rem", background: "var(--dark-card)" }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }} className="flex-col-mobile">
+      <section id="about" className="section-pad" style={{ padding: "6rem 1.5rem", background: "var(--dark-card)" }}>
+        <div className="about-grid" style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
           <div className="reveal" style={{ opacity: 0, transform: "translateX(-40px)", transition: "all 0.9s ease" }}>
             <p style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "11px", letterSpacing: "0.4em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "1.5rem" }}>Наша история</p>
             <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(2.5rem, 5vw, 3.5rem)", fontWeight: 700, color: "var(--cream)", lineHeight: 1.1, marginBottom: "2rem" }}>
@@ -334,7 +361,7 @@ export default function Index() {
               <p>Наш шеф-повар привёз рецепты, передававшиеся в семье через поколения — аутентичный лула-кебаб, шах-плов с каштанами и сухофруктами, нежная долма в виноградных листьях.</p>
               <p>Каждое блюдо — это путешествие в Баку: пряный аромат шафрана, живой огонь мангала и тёплое гостеприимство Востока.</p>
             </div>
-            <div style={{ marginTop: "2.5rem", display: "flex", gap: "2rem" }}>
+            <div className="about-features" style={{ marginTop: "2.5rem", display: "flex", gap: "2rem" }}>
               {[["Традиционные рецепты", "По семейным рецептам"], ["Живой мангал", "Настоящий огонь, дым, аромат"]].map(([title, desc]) => (
                 <div key={title}>
                   <div style={{ width: "2rem", height: "1px", marginBottom: "12px", background: "var(--gold)" }} />
@@ -344,7 +371,7 @@ export default function Index() {
               ))}
             </div>
           </div>
-          <div className="reveal" style={{ opacity: 0, transform: "translateX(40px)", transition: "all 0.9s ease 0.2s", position: "relative" }}>
+          <div className="reveal about-image-wrap" style={{ opacity: 0, transform: "translateX(40px)", transition: "all 0.9s ease 0.2s", position: "relative" }}>
             <div style={{ position: "absolute", top: "-16px", left: "-16px", width: "100%", height: "100%", border: "1px solid rgba(201,168,76,0.2)", borderRadius: "2px", zIndex: 0 }} />
             <img src={PLOV_IMG} alt="Атмосфера ресторана" style={{ position: "relative", width: "100%", borderRadius: "2px", objectFit: "cover", aspectRatio: "4/5", filter: "brightness(0.85)", zIndex: 1 }} />
             <div style={{ position: "absolute", bottom: "-24px", right: "-24px", borderRadius: "2px", padding: "1.5rem", zIndex: 10, background: "var(--dark)", border: "1px solid rgba(201,168,76,0.3)" }}>
@@ -356,7 +383,7 @@ export default function Index() {
       </section>
 
       {/* REVIEWS */}
-      <section id="reviews" style={{ padding: "6rem 1.5rem", background: "var(--dark)" }}>
+      <section id="reviews" className="section-pad" style={{ padding: "6rem 1.5rem", background: "var(--dark)" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <div className="text-center reveal" style={{ opacity: 0, transform: "translateY(40px)", transition: "all 0.8s ease", marginBottom: "4rem" }}>
             <p style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "11px", letterSpacing: "0.4em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "1rem" }}>Мнения гостей</p>
@@ -403,7 +430,7 @@ export default function Index() {
       </section>
 
       {/* BOOKING */}
-      <section id="booking" style={{ padding: "6rem 1.5rem", background: "var(--dark-card)" }}>
+      <section id="booking" className="section-pad" style={{ padding: "6rem 1.5rem", background: "var(--dark-card)" }}>
         <div style={{ maxWidth: "800px", margin: "0 auto" }}>
           <div className="text-center reveal" style={{ opacity: 0, transform: "translateY(40px)", transition: "all 0.8s ease", marginBottom: "4rem" }}>
             <p style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "11px", letterSpacing: "0.4em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "1rem" }}>Резервация</p>
@@ -430,9 +457,10 @@ export default function Index() {
                 opacity: 0,
                 transform: "translateY(40px)",
                 transition: "all 0.8s ease 0.2s",
+                boxSizing: "border-box" as const,
               }}
             >
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
+              <div className="booking-form-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
                 {[
                   { label: "Ваше имя", type: "text", key: "name", placeholder: "Иван Иванов" },
                   { label: "Телефон", type: "tel", key: "phone", placeholder: "+7 (978) 000-00-00" },
@@ -507,7 +535,7 @@ export default function Index() {
       </section>
 
       {/* CONTACTS */}
-      <section id="contacts" style={{ padding: "6rem 1.5rem", background: "var(--dark)" }}>
+      <section id="contacts" className="section-pad" style={{ padding: "6rem 1.5rem", background: "var(--dark)" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <div className="text-center reveal" style={{ opacity: 0, transform: "translateY(40px)", transition: "all 0.8s ease", marginBottom: "4rem" }}>
             <p style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "11px", letterSpacing: "0.4em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "1rem" }}>Как нас найти</p>
@@ -515,7 +543,7 @@ export default function Index() {
             <div className="deco-line" style={{ margin: "0 auto" }} />
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem", marginBottom: "3rem" }}>
+          <div className="contacts-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem", marginBottom: "3rem" }}>
             {[
               { icon: "MapPin", title: "Адрес", lines: ["г. Севастополь", "ул. Петрова, 4"] },
               { icon: "Phone", title: "Телефон", lines: ["+7 (927) 055-55-55", "Принимаем звонки круглосуточно"] },
@@ -571,12 +599,12 @@ export default function Index() {
 
       {/* FOOTER */}
       <footer style={{ padding: "2.5rem 1.5rem", background: "var(--dark-card)", borderTop: "1px solid rgba(201,168,76,0.1)" }}>
-        <div style={{ maxWidth: "900px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1.5rem" }}>
+        <div className="footer-inner" style={{ maxWidth: "900px", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1.5rem" }}>
           <div>
             <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.5rem", fontWeight: 700, color: "var(--gold)" }}>Легенды Баку</div>
             <p style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "12px", color: "rgba(242,234,216,0.4)", marginTop: "4px" }}>Ресторан азербайджанской кухни · Севастополь</p>
           </div>
-          <div style={{ display: "flex", gap: "2rem" }}>
+          <div className="footer-links" style={{ display: "flex", gap: "2rem" }}>
             {[["menu", "Меню"], ["gallery", "Галерея"], ["booking", "Бронь"], ["contacts", "Контакты"]].map(([id, label]) => (
               <button key={id} onClick={() => scrollTo(id)} className="nav-link" style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "13px", background: "none", border: "none", cursor: "pointer" }}>
                 {label}

@@ -345,6 +345,61 @@ body::before {
   opacity: 0.3;
 }
 
+/* ===== MOBILE ADAPTIVE ===== */
+@media (max-width: 768px) {
+  .hero-mosaic {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-mosaic-side {
+    display: none !important;
+  }
+  .menu-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .about-image-wrap {
+    display: none !important;
+  }
+  .about-features {
+    flex-direction: column !important;
+    gap: 1.2rem !important;
+  }
+  .contacts-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .booking-form-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .booking-form-inner {
+    padding: 1.25rem !important;
+  }
+  .section-pad {
+    padding: 3.5rem 1rem !important;
+  }
+  .footer-inner {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 1.2rem !important;
+  }
+  .footer-links {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
