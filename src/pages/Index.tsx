@@ -175,7 +175,7 @@ export default function Index() {
           </div>
 
           <h1 className="animate-fade-up opacity-0" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "clamp(4rem, 12vw, 9rem)", fontWeight: 700, lineHeight: 0.9, marginBottom: "1.5rem", animationDelay: "0.4s" }}>
-            <span style={{ background: "linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", display: "block" }}>Легенда</span>
+            <span style={{ background: "linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", display: "block" }}>Легенды</span>
             <span style={{ color: "var(--cream)", display: "block" }}>Баку</span>
           </h1>
 
