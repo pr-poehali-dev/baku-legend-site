@@ -4,7 +4,7 @@ import Icon from "@/components/ui/icon";
 const LULA_IMG = "https://cdn.poehali.dev/projects/2d8f79af-5f59-4784-b8f6-e0e8ac5ea696/files/a2971bb1-fd52-43b8-ac15-f44d3f74b5fd.jpg";
 const PLOV_IMG = "https://cdn.poehali.dev/projects/2d8f79af-5f59-4784-b8f6-e0e8ac5ea696/files/105ad56e-2eb0-4ce1-81e7-c0648f5e852a.jpg";
 const SHASHLIK_IMG = "https://cdn.poehali.dev/projects/2d8f79af-5f59-4784-b8f6-e0e8ac5ea696/files/af1ccd9d-4c15-458b-9b72-1cafc152db63.jpg";
-const DOVGA_IMG = "https://cdn.poehali.dev/projects/2d8f79af-5f59-4784-b8f6-e0e8ac5ea696/files/ed8dfc33-d63a-412d-800a-af6f0c1a7e0c.jpg";
+const DOVGA_IMG = "https://cdn.poehali.dev/projects/2d8f79af-5f59-4784-b8f6-e0e8ac5ea696/files/9ec33ca0-90a9-4b11-8413-01dafe06e5dd.jpg";
 
 function useScrollReveal() {
   useEffect(() => {
@@ -30,26 +30,27 @@ const menuCategories = [
   {
     name: "Мангал",
     items: [
-      { name: "Лула-кебаб из баранины", desc: "Рубленый фарш с зеленью, лук, перец, жареный на мангале", price: "490 ₽" },
-      { name: "Шашлык из баранины", desc: "Маринованная корейка молодого ягнёнка, томаты, зира", price: "650 ₽" },
-      { name: "Шашлык из говядины", desc: "Вырезка, маринованная в гранатовом соке и специях", price: "590 ₽" },
-      { name: "Тике-кебаб", desc: "Куриное филе в ароматном маринаде, свежие овощи", price: "420 ₽" },
+      { name: "Люля-кебаб из баранины", desc: "Рубленый фарш с зеленью, лук, перец, жареный на мангале", price: "850 ₽" },
+      { name: "Шашлык из баранины", desc: "Маринованная корейка молодого ягнёнка, томаты, зира", price: "850 ₽" },
+      { name: "Шашлык каре баранины", desc: "Отборные рёбрышки молодого ягнёнка на мангале", price: "950 ₽" },
+      { name: "Шашлык из говядины", desc: "Вырезка, маринованная в гранатовом соке и специях", price: "850 ₽" },
+      { name: "Аджап-сандал", desc: "Овощное блюдо с баклажанами, перцем и помидорами на мангале", price: "850 ₽" },
     ],
   },
   {
     name: "Плов",
     items: [
-      { name: "Шах-плов", desc: "Азербайджанский плов в лаваше с бараниной, каштанами и сухофруктами", price: "780 ₽" },
-      { name: "Парча-доша", desc: "Плов с курицей в гранатовом соусе, с шафраном", price: "650 ₽" },
-      { name: "Сюдлю-плов", desc: "Молочный плов с изюмом и корицей, по-домашнему", price: "520 ₽" },
+      { name: "Шах-плов", desc: "Азербайджанский плов в лаваше с бараниной, каштанами и сухофруктами", price: "850 ₽" },
+      { name: "Азербайджанский плов", desc: "Традиционный плов с шафраном, бараниной и зеленью", price: "750 ₽" },
+      { name: "Бакинский плов", desc: "Рассыпчатый рис с сухофруктами и нежной бараниной", price: "750 ₽" },
     ],
   },
   {
     name: "Закуски",
     items: [
-      { name: "Кюфта-бозбаш", desc: "Суп с фрикадельками из баранины, нут, картофель", price: "380 ₽" },
-      { name: "Дюшбара", desc: "Азербайджанские пельмени с бараниной в бульоне", price: "340 ₽" },
-      { name: "Долма", desc: "Виноградные листья с рисом и ягнятиной, мацони", price: "390 ₽" },
+      { name: "Кюфта-бозбаш", desc: "Суп с фрикадельками из баранины, нут, картофель", price: "850 ₽" },
+      { name: "Дюшбара", desc: "Азербайджанские пельмени с бараниной в бульоне", price: "850 ₽" },
+      { name: "Долма", desc: "Виноградные листья с рисом и ягнятиной, мацони", price: "750 ₽" },
       { name: "Пахлава", desc: "Медовая слоёная выпечка с орехами, шафран", price: "280 ₽" },
       { name: "Довга", desc: "Традиционный йогуртовый суп со шпинатом, рисом и свежей мятой", price: "250 ₽" },
     ],
@@ -61,7 +62,7 @@ const reviews = [
     name: "Алина К.",
     date: "Февраль 2025",
     rating: 5,
-    text: "Лучший лула-кебаб в Севастополе, без преувеличений. Атмосфера восточная, персонал приветливый. Будем возвращаться снова.",
+    text: "Лучший люля-кебаб в Севастополе, без преувеличений. Атмосфера восточная, персонал приветливый. Будем возвращаться снова.",
   },
   {
     name: "Дмитрий М.",
@@ -78,7 +79,7 @@ const reviews = [
 ];
 
 const galleryImages = [
-  { src: LULA_IMG, title: "Лула-кебаб" },
+  { src: LULA_IMG, title: "Люля-кебаб" },
   { src: PLOV_IMG, title: "Шах-плов" },
   { src: SHASHLIK_IMG, title: "Шашлык" },
   { src: DOVGA_IMG, title: "Довга" },
@@ -208,7 +209,7 @@ export default function Index() {
 
           <p className="animate-fade-up opacity-0" style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "clamp(1rem, 2vw, 1.2rem)", maxWidth: "600px", margin: "0 auto 2.5rem", lineHeight: 1.7, color: "rgba(242,234,216,0.7)", animationDelay: "0.6s" }}>
             Подлинные вкусы Азербайджана в сердце Севастополя.<br />
-            Лула-кебаб, плов, шашлык — по традиционным рецептам.
+            Люля-кебаб, плов, шашлык — по традиционным рецептам.
           </p>
 
           <div className="animate-fade-up opacity-0" style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", animationDelay: "0.8s" }}>
@@ -227,7 +228,7 @@ export default function Index() {
 
           {/* Stats */}
           <div className="animate-fade-up opacity-0" style={{ marginTop: "4rem", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "2rem", maxWidth: "420px", margin: "4rem auto 0", animationDelay: "1s" }}>
-            {[["15+", "лет традиций"], ["60+", "блюд в меню"], ["4.9 ★", "рейтинг"]].map(([num, label]) => (
+            {[["15+", "лет традиций"], ["60+", "блюд в меню"], ["5.0 ★", "рейтинг"]].map(([num, label]) => (
               <div key={num} className="text-center">
                 <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "2rem", fontWeight: 700, color: "var(--gold)" }}>{num}</div>
                 <div style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "11px", letterSpacing: "0.05em", marginTop: "4px", color: "rgba(242,234,216,0.5)" }}>{label}</div>
@@ -358,7 +359,7 @@ export default function Index() {
             </h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "1.2rem", fontFamily: "'Golos Text', sans-serif", fontSize: "15px", lineHeight: 1.8, color: "rgba(242,234,216,0.7)" }}>
               <p>Ресторан «Легенды Баку» открылся в Севастополе более 15 лет назад и стал настоящим посольством азербайджанской кулинарной культуры на черноморском берегу.</p>
-              <p>Наш шеф-повар привёз рецепты, передававшиеся в семье через поколения — аутентичный лула-кебаб, шах-плов с каштанами и сухофруктами, нежная долма в виноградных листьях.</p>
+              <p>Наш шеф-повар привёз рецепты, передававшиеся в семье через поколения — аутентичный люля-кебаб, шах-плов с каштанами и сухофруктами, нежная долма в виноградных листьях.</p>
               <p>Каждое блюдо — это путешествие в Баку: пряный аромат шафрана, живой огонь мангала и тёплое гостеприимство Востока.</p>
             </div>
             <div className="about-features" style={{ marginTop: "2.5rem", display: "flex", gap: "2rem" }}>
@@ -545,9 +546,9 @@ export default function Index() {
 
           <div className="contacts-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem", marginBottom: "3rem" }}>
             {[
-              { icon: "MapPin", title: "Адрес", lines: ["г. Севастополь", "ул. Петрова, 4"] },
-              { icon: "Phone", title: "Телефон", lines: ["+7 (927) 055-55-55", "Принимаем звонки круглосуточно"] },
-              { icon: "Clock", title: "Режим работы", lines: ["Круглосуточно", "7 дней в неделю"] },
+              { icon: "MapPin", title: "Адрес", lines: ["г. Севастополь", "ул. Айвазовского, 3"] },
+              { icon: "Phone", title: "Телефон", lines: ["+7 (978) 601-27-39", "Принимаем звонки ежедневно"] },
+              { icon: "Clock", title: "Режим работы", lines: ["Ежедневно", "с 11:00 до 23:00"] },
             ].map((item, i) => (
               <div
                 key={i}
