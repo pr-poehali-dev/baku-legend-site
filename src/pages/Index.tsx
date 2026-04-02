@@ -587,7 +587,7 @@ export default function Index() {
             }}
           >
             <iframe
-              src="https://yandex.ru/map-widget/v1/?ll=33.526201,44.616510&z=15&pt=33.526201,44.616510,pm2rdm"
+              src="https://yandex.ru/map-widget/v1/?ll=33.519934,44.612542&z=17&pt=33.519934,44.612542,pm2rdm"
               width="100%"
               height="320"
               allowFullScreen
